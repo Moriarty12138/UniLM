@@ -1,0 +1,17 @@
+python run_seq2seq.py --do_train --num_worker 0 \
+  --bert_model D:\PycharmProjects\unilm-v1\unilm-base-cased \
+  --new_segment_ids \
+  --data_dir datasets/ \
+  --src_file valid.src --tgt_file valid.tgt \
+  --output_dir output/bert_save/ --log_dir output/log_save/ \
+  --max_seq_length 256 --max_position_embeddings 256 \
+  --trunc_seg a --always_truncate_tail \
+  --max_len_b 64 --mask_prob 0.7 \
+  --max_pred 64 \
+  --train_batch_size 128 \
+  --gradient_accumulation_steps 1 \
+  --learning_rate 0.0001 \
+  --warmup_proportion 0.1 \
+  --label_smoothing 0.1 \
+  --num_train_epochs 10 \
+  --model_recover_path D:\PycharmProjects\unilm-v1\unilm-base-cased\pytorch_model.bin
