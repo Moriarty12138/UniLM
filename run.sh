@@ -1,8 +1,8 @@
-python run_seq2seq.py --do_train --num_worker 0 \
-  --bert_model D:\PycharmProjects\unilm-v1\unilm-base-cased \
+CUDA_VISIBLE_DEVICES=1,2,3,4,5 python run_seq2seq.py --do_train --num_worker 0 \
+  --bert_model torch_unilm_model/ \
   --new_segment_ids \
   --data_dir datasets/ \
-  --src_file valid.src --tgt_file valid.tgt \
+  --src_file train_add.src --tgt_file train_add.tgt \
   --output_dir output/bert_save/ --log_dir output/log_save/ \
   --max_seq_length 256 --max_position_embeddings 256 \
   --trunc_seg a --always_truncate_tail \
@@ -14,4 +14,4 @@ python run_seq2seq.py --do_train --num_worker 0 \
   --warmup_proportion 0.1 \
   --label_smoothing 0.1 \
   --num_train_epochs 10 \
-  --model_recover_path D:\PycharmProjects\unilm-v1\unilm-base-cased\pytorch_model.bin
+  --model_recover_path torch_unilm_model/pytorch_model.bin
